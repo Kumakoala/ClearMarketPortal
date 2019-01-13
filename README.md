@@ -24,9 +24,11 @@ Do npm install.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Angular7](https://angular.io/) - The web framework used
+* [Angular-CLI](https://cli.angular.io/) - Command line interface for Angular
+* [Express.js](https://expressjs.com/) - The node server framwork used
+* [Socket.io](https://socket.io/) - Real time communication library.
+* [PrimeNG](https://www.primefaces.org/primeng/#/) - UI library for Angular
 
 ## Authors
 
