@@ -5,6 +5,7 @@ A simple portal to track stock price, provided by Clear Market.
 ## Getting Started
 
 Clone the whole repositorie to local machine.
+
 git clone https://github.com/Kumakoala/ClearMarketPortal.git
 
 ### Prerequisites
