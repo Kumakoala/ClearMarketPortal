@@ -17,9 +17,13 @@ You can download them from https://www.npmjs.com/get-npm
 ### Installing
 
 cd into ClearMarketPortal
+
 Do npm install
+
 cd ../
+
 cd into ClearMarketPortal-Node
+
 Do npm install.
 
 ## Built With
