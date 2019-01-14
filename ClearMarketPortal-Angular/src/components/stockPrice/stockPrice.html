@@ -10,7 +10,7 @@
         <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
-                    {{rowData[col.field]}}
+                    {{tableData(rowData, col)}}
                 </td>
             </tr>
         </ng-template>

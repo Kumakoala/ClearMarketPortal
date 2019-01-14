@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('clearmarketportal-node:server');
 var http = require('http');
+const config = {pingTimeout: 60000};
+const priceModule = require('../public/javascripts/stockPrice');
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +22,6 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-const config = {pingTimeout: 60000};
 const io = require('socket.io')(server, config);
 
 /**
@@ -32,34 +33,15 @@ server.listen(port, () => {
 });
 server.on('error', onError);
 server.on('listening', onListening);
-var priceData = [
-  {
-    stock: 'GOOG',
-    price: 1001.67,
-    volume: 244677557
-  },
-  {
-    stock: 'APPL',
-    price: 120.56,
-    volume: 306837209
-  },
-  {
-    stock: 'AMZN',
-    price: 1500.67,
-    volume: 256798553
-  },
-  {
-    stock: 'MSFT',
-    price: 126.67,
-    volume: 578940448
-  }
-];
 
 io.on('connection', socket => {
-  socket.emit('price', priceData);
+  socket.emit('price', priceModule.priceGet());
   socket.on('priceUpdate', () => {
-    socket.emit('price', priceData);
-  })
+    socket.emit('price', priceModule.priceGet());
+  });
+  socket.on('disconnect', () => {
+    socket.emit('user disconnected');
+  });
 })
 /**
  * Normalize a port into a number, string, or false.

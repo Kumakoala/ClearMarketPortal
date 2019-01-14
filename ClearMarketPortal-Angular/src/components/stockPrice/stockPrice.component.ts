@@ -23,9 +23,14 @@ export class StockPriceComponent implements OnInit {
 
   ngOnInit() {
     this.service.currentPrice.subscribe(data => {
-      console.log('data', data);
+      // console.log('data', data);
       this.stocks = data;
     })
     console.log('stock page initiated');
+  }
+
+  tableData(rowData, col) {
+    // in case of stupid js float number, make all number display to user fixed
+    return this.service.financialWrapNumber(rowData[col.field]);
   }
 }

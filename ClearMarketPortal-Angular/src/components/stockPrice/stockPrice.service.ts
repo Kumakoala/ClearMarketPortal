@@ -11,4 +11,8 @@ export class StockPriceService {
       this.socket.emit('priceUpdate');
     }, 1000)
   }
+
+  financialWrapNumber(num) {
+    return Number.parseFloat(num).toFixed(2);
+  }
 }
